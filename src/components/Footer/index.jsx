@@ -8,7 +8,7 @@ function Footer() {
         <div className="container footer-container">
           <div className="footer-left">
             <h2 className="left-title">Get In Touch</h2>
-            <a href="#" class="btn hero-btn">
+            <a href="#" className="btn hero-btn">
               Book a Session
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +34,8 @@ function Footer() {
                 </g>
               </svg>
             </a>
-            <div class="messengers">
-              <a href="https://www.facebook.com" class="messengers-item">
+            <div className="messengers">
+              <a href="https://www.facebook.com" className="messengers-item">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -44,13 +44,13 @@ function Footer() {
                 >
                   <path
                     fillRule="evenodd"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                     d="M24 11.57C24 5.18 18.852 0 12.501 0 6.148.001 1 5.18 1 11.572 1 17.346 5.206 22.132 10.702 23v-8.085H7.784v-3.343h2.92V9.02c0-2.9 1.718-4.5 4.344-4.5 1.26 0 2.575.225 2.575.225v2.846h-1.45c-1.428 0-1.873.893-1.873 1.808v2.17h3.188l-.51 3.344h-2.68v8.085C19.794 22.13 24 17.344 24 11.57Z"
                     fill="currentColor"
                   />
                 </svg>
               </a>
-              <a href="https://www.instagram.com" class="messengers-item">
+              <a href="https://www.instagram.com" className="messengers-item">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -63,7 +63,7 @@ function Footer() {
                   />
                 </svg>
               </a>
-              <a href="https://twitter.com" class="messengers-item">
+              <a href="https://twitter.com" className="messengers-item">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -76,7 +76,7 @@ function Footer() {
                   />
                 </svg>
               </a>
-              <a href="https://t.me/hujjat_admin" class="messengers-item">
+              <a href="https://t.me/hujjat_admin" className="messengers-item">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
