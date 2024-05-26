@@ -1,34 +1,27 @@
-import { createContext, useEffect, useReducer, useContext } from "react";
+import React, { createContext, useContext } from "react";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { legacy_createStore } from "redux";
 
-export const darkMode = createContext();
+const initialState = { darkmode: false };
 
-function reducer(state, { type, payload = null }) {
-  switch (type) {
+function reducer(state = initialState, action) {
+  switch (action.type) {
     case "CHANGE_MODE":
       return { ...state, darkmode: !state.darkmode };
+    default:
+      return state;
   }
 }
 
-export function Provider({ children }) {
-  const [state, dispatch] = useReducer(reducer, { darkmode: false });
+const store = legacy_createStore(reducer);
+export const darkModeContext = createContext();
 
-  // useEffect(() => {
-  //     const dark = JSON.parse(localStorage.getItem("dark"));
-  //     if (dark !== null) {
-  //         dispatch({ type: "TOOGLE_MODE" });
-  //     }
-  // }, []);
-
-  // useEffect(() => {
-  //     localStorage.setItem("dark", JSON.stringify(state.darkmode));
-  // }, [state.darkmode]);
-
-  function ChangeMode() {
-    return dispatch({ type: "CHANGE_MODE" });
-  }
+export function DarkModeProvider({ children }) {
   return (
-    <darkMode.Provider value={{ state, ChangeMode }}>
-      {children}
-    </darkMode.Provider>
+    <Provider store={store}>
+      <darkModeContext.Provider value={useContext(darkModeContext)}>
+        {children}
+      </darkModeContext.Provider>
+    </Provider>
   );
 }

@@ -1,11 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { Provider } from './context/context.jsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { DarkModeProvider } from "./context/context.jsx";
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <Provider>
-        <App />
-    </Provider>
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <DarkModeProvider>
+    <App />
+  </DarkModeProvider>
+);

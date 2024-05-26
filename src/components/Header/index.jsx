@@ -1,22 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { darkMode } from "../../context/context";
+import { useDispatch, useSelector } from "react-redux";
 import dark from "/src/images/dark.svg";
 import light from "/src/images/light.svg";
 import "./style.css";
 
 function Header() {
-  const {
-    state: { darkmode },
-    ChangeMode,
-  } = useContext(darkMode);
+  const darkmode = useSelector((state) => state.darkmode);
+  const dispatch = useDispatch();
+
   function setDarkMode() {
     if (!darkmode) {
       document.body.classList.add("dark");
     } else {
       document.body.classList.remove("dark");
     }
-    ChangeMode();
+    dispatch({ type: "CHANGE_MODE" });
   }
 
   return (
@@ -41,19 +40,19 @@ function Header() {
             </li>
           </ul>
         </div>
-        <btn className="header-btn" onClick={() => setDarkMode()}>
+        <button className="header-btn" onClick={setDarkMode}>
           {darkmode ? (
             <>
-              <img src={light} className="ligth_icon" alt="light_icon" />
-              <p className="dark__text">LightMode</p>{" "}
+              <img src={light} className="light_icon" alt="light_icon" />
+              <p className="dark__text">LightMode</p>
             </>
           ) : (
             <>
               <img src={dark} className="dark_icon" alt="dark_icon" />
-              <p className="dark__text">DarkMode</p>{" "}
+              <p className="dark__text">DarkMode</p>
             </>
           )}
-        </btn>
+        </button>
       </div>
     </header>
   );
